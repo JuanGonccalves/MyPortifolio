@@ -11,7 +11,7 @@ from PIL import Image
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "Juan Gonçalves Martins.pdf"
-profile_pic = current_dir / "assets" / "profile.jpg"
+profile_pic_path = current_dir / "assets" / "profile.jpg"
 
 
 # --- GENERAL SETTINGS ---
@@ -46,7 +46,7 @@ with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
-profile_pic = Image.open(profile_pic)
+profile_pic = Image.open(profile_pic_path)
 
 
 # --- HERO SECTION ---
