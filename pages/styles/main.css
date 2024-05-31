@@ -3,6 +3,10 @@
 
 * {font-family: 'Readex Pro';}
 
+body {
+    background-color: #FFFFFF;
+}
+
 
 a {
     text-decoration: none;
