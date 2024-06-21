@@ -3,17 +3,18 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 
-primaryColor = "#F63366"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F0F2F6"
-textColor = "#262730"
-font = "sans serif"
+primaryColor="#F63366"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6"
+textColor="#262730"
+font="sans serif"
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "Juan Gonçalves Martins.pdf"
-profile_pic_path = current_dir / "assets" / "Profile.jpg"
+profile_pic_path = current_dir / "assets" / "profile.jpg"
+
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "Digital CV | Juan G. Martins"
@@ -31,8 +32,8 @@ SOCIAL_MEDIA = {
 PROJECTS = {
     "🏆 Medical Cost - Linear Regression": "https://github.com/JuanGonccalves/Medical_Cost",
     "🏆 Read Multi Files": "https://github.com/JuanGonccalves/ReadMultiFiles",
-    "🏆 In progress...": ""
-}
+    "🏆 House Sales in King County, USA": "https://github.com/JuanGonccalves/House"
+    }
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 myprofile = """
@@ -42,12 +43,13 @@ Always eager to improve and stay updated with trends, I enjoy collaborating and 
 """
 st.sidebar.markdown(myprofile)
 
-# --- LOAD CSS, PDF & PROFILE PIC ---
+# --- LOAD CSS, PDF & PROFIL PIC ---
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 profile_pic = Image.open(profile_pic_path)
+
 
 # --- HERO SECTION ---
 col1, col2 = st.columns(2, gap="small")
@@ -65,22 +67,25 @@ with col2:
     )
     st.write("📫", EMAIL)
 
+
 # --- SOCIAL LINKS ---
 st.write('\n')
 cols = st.columns(len(SOCIAL_MEDIA))
 for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
     cols[index].write(f"[{platform}]({link})")
 
+
 # --- EXPERIENCE & QUALIFICATIONS ---
 st.write('\n')
-st.subheader("Experience & Qualifications")
+st.subheader("Experience & Qulifications")
 st.write(
     """
-- ✔️ 5 years experience extracting actionable insights from data
-- ✔️ Using Python, Power BI and Excel for Data Science and Data Analysis.
+- ✔️ 5 Years expereince extracting actionable insights from data
+- ✔️ Using Python, Power BI and Excel for Data science and Data analysis.
 - ✔️ Good understanding of statistical principles and their respective applications
-    """
+"""
 )
+
 
 # --- SKILLS ---
 st.write('\n')
@@ -88,11 +93,12 @@ st.subheader("Hard Skills")
 st.write(
     """
 - 🧑🏽‍💻 Programming: Python (Scikit-learn, Statsmodels, Numpy, Pandas and others), SQL.
-- 📊 Data Visualization: PowerBI, Looker (Google Data Studio), Excel.
-- 📚 Modeling: Logistic regression, linear regression, decision trees.
-- 🗄️ Databases: SQL Server, SQLite and others.
-    """
+- 📊 Data Visulization: PowerBi, Looker (Google Data Studio), Excel.
+- 📚 Modeling: Logistic regression, linear regression, decition trees.
+- 🗄️ Databases: SQL server, Sqlite and others.
+"""
 )
+
 
 # --- WORK HISTORY ---
 st.write('\n')
@@ -106,8 +112,8 @@ st.write(
     """
 - ► Used Python for extracting financial data from SAP.
 - ► Data modeling with Python to present financial controls.
-- ► Public data web scraping and database storage for market research.
-    """
+- ► Public data webscraping and database storage for market research.
+"""
 )
 
 # --- JOB 2
@@ -116,10 +122,23 @@ st.write("🧑🏽‍💻", "**Business Intelligence Consultant**")
 st.write("01/2021 - 12/2021")
 st.write(
     """
-- ► Development of management reports in Power BI - KPI's and OKR's.
-- ► Data modeling using SQL for data analysis.
-    """
+- ► Development of management reports in power BI - KPI's and OKR's.
+- ► Data modeling using sql for data analysis.
+"""
 )
+
+# --- JOB 3
+#st.write('\n')
+#st.write("🚧", "**Data Analyst | Chegg**")
+#st.write("04/2015 - 01/2018")
+#st.write(
+#    """
+#- ► Devised KPIs using SQL across company website in collaboration with cross-functional teams to achieve a 120% jump in organic traﬃc
+#- ► Analyzed, documented, and reported user survey results to improve customer communication processes by 18%
+#- ► Collaborated with analyst team to oversee end-to-end process surrounding customers' return data
+#"""
+#)
+
 
 # --- Projects & Accomplishments ---
 st.write('\n')
