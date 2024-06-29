@@ -1,8 +1,14 @@
-import streamlit as st
 from pathlib import Path
+import streamlit as st
 from PIL import Image
 
-# Configurações globais
+# Paths
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+css_file = current_dir / "styles" / "main.css"
+resume_file = current_dir / "assets" / "Juan Gonçalves Martins.pdf"
+profile_pic_path = current_dir / "assets" / "Profile.jpg"
+
+# General settings
 PAGE_TITLE = "Digital CV | Juan G. Martins"
 PAGE_ICON = ":wave:"
 NAME = "Juan Gonçalves Martins"
@@ -16,21 +22,22 @@ SOCIAL_MEDIA = {
     "Twitter": "https://x.com/Juan10941907",
 }
 PROJECTS = {
-    "🏆 Medical Cost - Linear Regression": "https://github.com/JuanGonccalves/Medical_Cost",
-    "🏆 Read Multi Files": "https://github.com/JuanGonccalves/ReadMultiFiles",
-    "🏆 House Sales in King County, USA": "https://github.com/JuanGonccalves/House"
+    "🏆 Medical Cost - Linear Regression": "https://www.linkedin.com/posts/juangmartins_medical-cost-activity-7198140280246558720-hOrb?utm_source=share&utm_medium=member_desktop",
+    "🏆 Read Multi Files": "https://www.linkedin.com/posts/juangmartins_readmultifiles-activity-7185405507786993664-Oae_?utm_source=share&utm_medium=member_desktop",
+    "🏆 In progress...": ""
 }
 
-# Paths
-current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-css_file = current_dir / "styles" / "main.css"
-resume_file = current_dir / "assets" / "Juan Gonçalves Martins.pdf"
-profile_pic_path = current_dir / "assets" / "Profile.jpg"
-
-# Set page config
+# Setting page configuration
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
-# Load profile picture
+# Sidebar - perfil
+myprofile = """
+I'm a passionate data scientist with years of experience turning complex data into valuable insights. Skilled in Python, SQL, and data visualization, I have a strong background in statistics, mathematics, and computer science.
+Always eager to improve and stay updated with trends, I enjoy collaborating and sharing knowledge. Open to new opportunities and challenges, feel free to reach out!
+"""
+st.sidebar.markdown(myprofile)
+
+# Load CSS, PDF & profile picture
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
@@ -39,13 +46,7 @@ with open(resume_file, "rb") as pdf_file:
 
 profile_pic = Image.open(profile_pic_path)
 
-# Sidebar - profile info
-st.sidebar.markdown("""
-I'm a passionate data scientist with years of experience turning complex data into valuable insights. Skilled in Python, SQL, and data visualization, I have a strong background in statistics, mathematics, and computer science.
-Always eager to improve and stay updated with trends, I enjoy collaborating and sharing knowledge. Open to new opportunities and challenges, feel free to reach out!
-""")
-
-# Main content - hero section
+# Hero section
 col1, col2 = st.columns(2, gap="small")
 with col1:
     st.image(profile_pic, width=230)
@@ -67,59 +68,9 @@ cols = st.columns(len(SOCIAL_MEDIA))
 for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
     cols[index].write(f"[{platform}]({link})")
 
-# Experience & Qualifications
-st.write('\n')
-st.subheader("Experience & Qualifications")
-st.write(
-    """
-- ✔️ 5 Years experience extracting actionable insights from data
-- ✔️ Using Python, Power BI and Excel for Data science and Data analysis.
-- ✔️ Good understanding of statistical principles and their respective applications
-"""
-)
-
-# Hard Skills
-st.write('\n')
-st.subheader("Hard Skills")
-st.write(
-    """
-- 🧑🏽‍💻 Programming: Python (Scikit-learn, Statsmodels, Numpy, Pandas and others), SQL.
-- 📊 Data Visualization: PowerBi, Looker (Google Data Studio), Excel.
-- 📚 Modeling: Logistic regression, linear regression, decision trees.
-- 🗄️ Databases: SQL server, Sqlite and others.
-"""
-)
-
-# Work History
-st.write('\n')
-st.subheader("Work History")
-st.write("---")
-
-# Job 1
-st.write("🧑🏽‍💻", "**Pleno Data Analyst | Education**")
-st.write("09/2022 - Present")
-st.write(
-    """
-- ► Used Python for extracting financial data from SAP.
-- ► Data modeling with Python to present financial controls.
-- ► Public data webscraping and database storage for market research.
-"""
-)
-
-# Job 2
-st.write('\n')
-st.write("🧑🏽‍💻", "**Business Intelligence Consultant**")
-st.write("01/2021 - 12/2021")
-st.write(
-    """
-- ► Development of management reports in Power BI - KPIs and OKRs.
-- ► Data modeling using SQL for data analysis.
-"""
-)
-
 # Projects & Accomplishments
 st.write('\n')
-st.subheader("Projects & Accomplishments")
+st.subheader("Blog")
 st.write("---")
 for project, link in PROJECTS.items():
     st.write(f"[{project}]({link})")
