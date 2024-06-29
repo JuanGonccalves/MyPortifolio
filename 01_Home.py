@@ -25,7 +25,7 @@ PROJECTS = {
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "Juan Gonçalves Martins.pdf"
-profile_pic_path = current_dir / "assets" / "profile.jpg"
+profile_pic_path = current_dir / "assets" / "Profile.jpg"
 
 # Set page config
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
