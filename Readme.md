@@ -26,7 +26,7 @@ Este repositório contém scripts para criar um portfólio pessoal utilizando St
    - Explore as diferentes páginas do portfólio acessando os scripts dentro do diretório `pages/`.
 
 3. **Deploy da Aplicação**:
-   - O portfólio está implantado e disponível online em [https://myportifolio-2vqsuvwmajngcgauvtevef.streamlit.app/](https://myportifolio-2vqsuvwmajngcgauvtevef.streamlit.app/).
+   - O portfólio está implantado e disponível online em [https://myportifolio-2vqsuvwmajngcgauvtevef.streamlit.app/](https://myportifolio-2vqsuvwmajngcgauvtef.streamlit.app/).
    - Acesse o link acima para visualizar e interagir com o portfólio em um ambiente online.
 
 4. **Personalização**:
@@ -44,4 +44,6 @@ Este repositório contém scripts para criar um portfólio pessoal utilizando St
 
 ---
 
-Este README fornece uma estrutura organizada e instruções para configurar, usar, implantar e melhorar seu portfólio pessoal usando Streamlit. Adapte conforme necessário para incluir mais detalhes específicos do seu projeto ou requisitos adicionais. Se precisar de mais assistência, estou à disposição para ajudar!
+### Visite meu portfólio:
+
+[Visualize meu portfólio no Streamlit](https://myportifolio-2vqsuvwmajngcgauvtevef.streamlit.app/)
