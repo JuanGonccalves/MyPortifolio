@@ -28,7 +28,7 @@ base_dir = current_dir.parent  # Diretório base, acima de 'pages'
 
 css_file = base_dir / "styles" / "main.css"
 resume_file = base_dir / "assets" / "Juan Gonçalves Martins.pdf"
-profile_pic_path = base_dir / "assets" / "profile.jpg"
+profile_pic_path = base_dir / "assets" / "Profile.jpg"
 
 # Configuração da página Streamlit
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
